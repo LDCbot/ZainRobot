@@ -1,8 +1,7 @@
 import flag
 from countryinfo import CountryInfo
 
-from FallenRobot import dispatcher
-from FallenRobot import telethn as borg
+from FallenRobot import telethn, BOT_NAME
 from FallenRobot.events import register
 
 
@@ -98,10 +97,10 @@ async def msg(event):
 <b>Top Level Domain :</b> {lanester}
 <b>Wikipedia :</b> {wiki}
 
-<u>Information Gathered By {dispatcher.bot.first_name}</u>
+<u>Information Gathered By {BOT_NAME}</u>
 """
 
-    await borg.send_message(
+    await telethn.send_message(
         event.chat_id,
         caption,
         parse_mode="HTML",
