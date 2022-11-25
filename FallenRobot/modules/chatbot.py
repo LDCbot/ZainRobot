@@ -41,9 +41,9 @@ def kukirm(update: Update, context: CallbackContext) -> str:
     if match:
         user_id = match.group(1)
         chat: Optional[Chat] = update.effective_chat
-        is_kuki = sql.rem_kuki(chat.id)
+        is_kuki = sql.set_kuki(chat.id)
         if is_kuki:
-            is_kuki = sql.rem_kuki(user_id)
+            is_kuki = sql.set_kuki(user_id)
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
                 f"AI_DISABLED\n"
@@ -70,9 +70,9 @@ def kukiadd(update: Update, context: CallbackContext) -> str:
     if match:
         user_id = match.group(1)
         chat: Optional[Chat] = update.effective_chat
-        is_kuki = sql.set_kuki(chat.id)
+        is_kuki = sql.rem_kuki(chat.id)
         if is_kuki:
-            is_kuki = sql.set_kuki(user_id)
+            is_kuki = sql.rem_kuki(user_id)
             return (
                 f"<b>{html.escape(chat.title)}:</b>\n"
                 f"AI_ENABLE\n"
@@ -127,7 +127,7 @@ def chatbot(update: Update, context: CallbackContext):
     chat_id = update.effective_chat.id
     bot = context.bot
     is_kuki = sql.is_kuki(chat_id)
-    if not is_kuki:
+    if is_kuki:
         return
 
     if message.text and not message.document:
@@ -138,30 +138,17 @@ def chatbot(update: Update, context: CallbackContext):
         url = f"http://api.roseloverx.com/api/chatbot?message={anon}"
         request = requests.get(url)
         results = json.loads(request.text)
-        result = f"{results['responses']}"
+        result = results['responses']
+        if result.startswith("['"):
+            result = result.replace("['", "")
         sleep(0.5)
         message.reply_text(result)
 
 
-def list_all_chats(update: Update, context: CallbackContext):
-    chats = sql.get_all_kuki_chats()
-    text = "<b>ChatBot Enabled Chats</b>\n"
-    for chat in chats:
-        try:
-            x = context.bot.get_chat(int(*chat))
-            name = x.title or x.first_name
-            text += f"• <code>{name}</code>\n"
-        except (BadRequest, Unauthorized):
-            sql.rem_kuki(*chat)
-        except RetryAfter as e:
-            sleep(e.retry_after)
-    update.effective_message.reply_text(text, parse_mode="HTML")
-
-
 __help__ = """
 *Admins only Commands*:
-  »  /chatbot *:* Shows chatbot control panel
 
+  »  /chatbot *:* Shows chatbot control panel
 """
 
 __mod_name__ = "Cʜᴀᴛʙᴏᴛ"
@@ -175,22 +162,15 @@ CHATBOT_HANDLER = MessageHandler(
     & (~Filters.regex(r"^#[^\s]+") & ~Filters.regex(r"^!") & ~Filters.regex(r"^\/")),
     chatbot,
 )
-LIST_ALL_CHATS_HANDLER = CommandHandler(
-    "allchats",
-    list_all_chats,
-    filters=CustomFilters.dev_filter,
-)
 
 dispatcher.add_handler(ADD_CHAT_HANDLER)
 dispatcher.add_handler(CHATBOTK_HANDLER)
 dispatcher.add_handler(RM_CHAT_HANDLER)
-dispatcher.add_handler(LIST_ALL_CHATS_HANDLER)
 dispatcher.add_handler(CHATBOT_HANDLER)
 
 __handlers__ = [
     ADD_CHAT_HANDLER,
     CHATBOTK_HANDLER,
     RM_CHAT_HANDLER,
-    LIST_ALL_CHATS_HANDLER,
     CHATBOT_HANDLER,
 ]
