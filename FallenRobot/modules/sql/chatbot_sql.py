@@ -40,10 +40,3 @@ def rem_kuki(chat_id):
         if kukichat:
             SESSION.delete(kukichat)
         SESSION.commit()
-
-
-def get_all_kuki_chats():
-    try:
-        return SESSION.query(KukiChats.chat_id).all()
-    finally:
-        SESSION.close()
