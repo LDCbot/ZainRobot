@@ -68,7 +68,7 @@ def song(client, message):
         m.delete()
     except Exception as e:
         m.edit(
-            f"**» ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴇʀʀᴏʀ, ʀᴇᴩᴏʀᴛ ᴛʜɪs ᴀᴛ​ » [sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ](t.me/{SUPPORT_CHAT}) 💕**\n\**ᴇʀʀᴏʀ :** {e}"
+            f"**» ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ ᴇʀʀᴏʀ, ʀᴇᴩᴏʀᴛ ᴛʜɪs ᴀᴛ » [sᴜᴩᴩᴏʀᴛ ᴄʜᴀᴛ](t.me/{SUPPORT_CHAT}) 💕**\n\**ᴇʀʀᴏʀ :** {e}"
         )
         print(e)
 
@@ -80,3 +80,8 @@ def song(client, message):
 
 
 __mod_name__ = "Sᴏɴɢ"
+
+__help__ = """
+ ❍ /song <song name>*:* Uploads the song in it's best quality available
+ 💡Ex: `/song Faded Alan Walker`
+"""
