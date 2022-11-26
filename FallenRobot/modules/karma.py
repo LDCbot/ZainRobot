@@ -4,7 +4,7 @@ from pyrogram import filters
 from pyrogram.enums import ChatMemberStatus
 
 from FallenRobot import pbot, OWNER_ID
-from FallenRobot.helper_extra.dbfun import (
+from FallenRobot.utils.mongo import (
     alpha_to_int,
     get_karma,
     get_karmas,
@@ -44,7 +44,7 @@ async def upvote(_, message):
         return
     if message.reply_to_message.from_user.id == OWNER_ID:
         await message.reply_text(
-            "ᴛʜᴀᴛ's ɢᴏᴏᴅ ʙᴜᴛ ʏᴏᴜ ᴋɴᴏᴡ ᴡʜᴀᴛ, ᴛʜᴀᴛ ᴩᴇʀsᴏɴ ɪs ᴍʏ ᴏᴡɴᴇʀ ᴀɴᴅ ᴇᴠᴇʀʏᴏɴᴇ ᴋɴᴏᴡs ᴛʜᴀᴛ ʜᴇ ɪs ᴀ ɢᴏᴏᴅ ᴍᴀɴ."
+            "ʜᴏᴡ sᴏ ᴘʀᴏ ?"
         )
         return
     if message.reply_to_message.from_user.id == message.from_user.id:
@@ -85,22 +85,21 @@ async def downvote(_, message):
         return
     if message.reply_to_message.from_user.id == OWNER_ID:
         await message.reply_text(
-            "ᴡᴛғ !, ʏᴏᴜ ᴅᴏɴ'ᴛ ᴀɢʀᴇᴇ ᴡɪᴛʜ ᴍʏ ᴏᴡɴᴇʀ. ʟᴏᴏᴋs ʟɪᴋᴇ ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴀɴ ɢᴏᴏᴅ ᴩᴇʀsᴏɴ."
+            "ɪ ᴋɴᴏᴡ ʜɪᴍ, sᴏ ɪ'ᴍ ɴᴏᴛ ɢᴏɴɴᴀ ᴅᴏ ᴛʜᴀᴛ ʙᴀʙʏ."
         )
         return
     if message.reply_to_message.from_user.id == message.from_user.id:
         return
-    chat_id = message.chat.id
     user_id = message.reply_to_message.from_user.id
     user_mention = message.reply_to_message.from_user.mention
-    current_karma = await get_karma(chat_id, await int_to_alpha(user_id))
+    current_karma = await get_karma(message.chat.id, await int_to_alpha(user_id))
     if current_karma:
         current_karma = current_karma["karma"]
         karma = current_karma - 1
     else:
-        karma = 1
+        karma = 0
     new_karma = {"karma": karma}
-    await update_karma(chat_id, await int_to_alpha(user_id), new_karma)
+    await update_karma(message.chat.id, await int_to_alpha(user_id), new_karma)
     await message.reply_text(
         f"ᴅᴇᴄʀᴇᴍᴇɴᴛᴇᴅ ᴋᴀʀᴍᴀ ᴏғ {user_mention} ʙʏ 1.\n**ᴛᴏᴛᴀʟ ᴩᴏɪɴᴛs :** {karma}"
     )
@@ -136,15 +135,15 @@ async def karma(_, message):
                 await asyncio.sleep(0.8)
             except Exception:
                 continue
-            u_mention = user.mention
-            if not u_mention:
+            first_name = user.first_name
+            if not first_name:
                 continue
-            msg += f"`{karma_count}`  {u_mention}\n"
+            msg += f"`{karma_count}`  {(first_name[0:12] + '...') if len(first_name) > 12 else first_name}\n"
             limit += 1
         await m.edit_text(msg)
     else:
         user_id = message.reply_to_message.from_user.id
-        karma = await get_karma(chat_id, await int_to_alpha(user_id))
+        karma = await get_karma(message.chat.id, await int_to_alpha(user_id))
         karma = karma["karma"] if karma else 0
         await message.reply_text(f"**ᴛᴏᴛᴀʟ ᴩᴏɪɴᴛs :** {karma}")
 
