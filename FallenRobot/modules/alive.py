@@ -1,35 +1,31 @@
-import random
-
 from pyrogram import __version__ as pyrover
 from telegram import __version__ as telever
-from telethon import Button
 from telethon import __version__ as tlhver
 
-from FallenRobot import OWNER_USERNAME, SUPPORT_CHAT, dispatcher
-from FallenRobot import telethn as tbot
-from FallenRobot.events import register
-
-PHOTO = [
-    "https://telegra.ph/file/6a21ea6677342f43b363e.jpg",
-    "https://telegra.ph/file/40eb1ed850cdea274693e.jpg",
-]
+from pyrogram import filters
+from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
+from FallenRobot import pbot, BOT_NAME, BOT_USERNAME, OWNER_ID, SUPPORT_CHAT
 
 
-@register(pattern=("/alive"))
-async def awake(event):
-    TEXT = f"**ʜᴇʏ​ [{event.sender.first_name}](tg://user?id={event.sender.id}),\n\nɪ ᴀᴍ {dispatcher.bot.first_name}**\n━━━━━━━━━━━━━━━━━━━\n\n"
-    TEXT += f"» **ᴍʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ​ : [𝝙𝗡𝗢𝗡𝗬𝗠𝗢𝗨𝗦](https://t.me/{OWNER_USERNAME})** \n\n"
+@pbot.on_message(filters.command("alive"))
+async def awake(_, message: Message):
+
+    TEXT = f"**ʜᴇʏ {message.from_user.mention},\n\nɪ ᴀᴍ {BOT_NAME}**\n━━━━━━━━━━━━━━━━━━━\n\n"
+    TEXT += f"» **ᴍʏ ᴅᴇᴠᴇʟᴏᴘᴇʀ :** [𝝙𝗡𝗢𝗡𝗬𝗠𝗢𝗨𝗦](tg://user?id={OWNER_ID})\n\n"
     TEXT += f"» **ʟɪʙʀᴀʀʏ ᴠᴇʀsɪᴏɴ :** `{telever}` \n\n"
     TEXT += f"» **ᴛᴇʟᴇᴛʜᴏɴ ᴠᴇʀsɪᴏɴ :** `{tlhver}` \n\n"
     TEXT += f"» **ᴘʏʀᴏɢʀᴀᴍ ᴠᴇʀsɪᴏɴ :** `{pyrover}` \n━━━━━━━━━━━━━━━━━\n\n"
     BUTTON = [
         [
-            Button.url("ʜᴇʟᴘ​", f"https://t.me/{dispatcher.bot.username}?start=help"),
-            Button.url("sᴜᴘᴘᴏʀᴛ​", f"https://t.me/{SUPPORT_CHAT}"),
+            InlineKeyboardButton("ʜᴇʟᴘ", url=f"https://t.me/{BOT_USERNAME}?start=help"),
+            InlineKeyboardButton("sᴜᴘᴘᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}"),
         ]
     ]
-    ran = random.choice(PHOTO)
-    await tbot.send_file(event.chat_id, ran, caption=TEXT, buttons=BUTTON)
+    await message.reply_photo(
+        photo="https://telegra.ph/file/40eb1ed850cdea274693e.jpg",
+        caption=TEXT,
+        reply_markup=InlineKeyboardMarkup(BUTTON),
+    )
 
 
 __mod_name__ = "Aʟɪᴠᴇ"
