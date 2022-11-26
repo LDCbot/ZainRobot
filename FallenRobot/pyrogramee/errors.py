@@ -1,4 +1,3 @@
-# © @AnonymousBoy1025
 import sys
 import traceback
 from functools import wraps
