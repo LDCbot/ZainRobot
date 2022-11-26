@@ -139,10 +139,8 @@ def chatbot(update: Update, context: CallbackContext):
         request = requests.get(url)
         results = json.loads(request.text)
         result = results['responses']
-        if result.startswith("['"):
-            result = result.replace("['", "")
-        sleep(0.5)
-        message.reply_text(result)
+        sleep(0.7)
+        message.reply_text(result[0])
 
 
 __help__ = """
