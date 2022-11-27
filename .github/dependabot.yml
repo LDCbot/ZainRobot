@@ -8,7 +8,7 @@ updates:
     timezone: "Asia/Kolkata"
   labels:
     - "dependencies"
-  open-pull-requests-limit: 20
+  open-pull-requests-limit: 50
   ignore:
     - dependency-name: "python-telegram-bot"
     # Ignoring all ptb updates
