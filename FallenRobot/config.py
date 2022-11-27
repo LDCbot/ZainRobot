@@ -49,8 +49,6 @@ class Config(object):
     HEROKU_API_KEY = None
     HEROKU_APP_NAME = None
     TEMP_DOWNLOAD_DIRECTORY = "./"
-    ARQ_API_KEY = "LJMETG-DPHBCX-DGHJCD-TMFIGB-ARQ"
-    ARQ_API_URL = "https://arq.hamker.in"
     ALLOW_EXCL = None
     BL_CHATS = []  # List of groups that you want blacklisted.
     SPAMMERS = None
