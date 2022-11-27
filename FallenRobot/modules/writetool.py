@@ -8,13 +8,10 @@ from FallenRobot import pbot as fallen
 
 @fallen.on_message(filters.command("write"))
 async def handwrite(_, message: Message):
-    if not message.reply_to_message:
-        try:
-            text = message.text.split(None, 1)[1]
-        except:
-            return await message.reply_text("`Reply to a text or give something to write.`")
-    else:
+    if message.reply_to_message:
         text = message.reply_to_message.text
+    else:
+        text = message.text.split(None, 1)[1]
 
         m = await message.reply_text("`Please wait...,\n\nWriting your text...`")
         API = f"https://api.sdbots.tk/write?text={text}"
