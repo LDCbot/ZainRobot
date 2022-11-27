@@ -1,7 +1,6 @@
 import asyncio
 
 from pyrogram import filters
-from pyrogram.enums import ChatMemberStatus
 
 from FallenRobot import pbot, OWNER_ID
 from FallenRobot.utils.mongo import (
@@ -14,6 +13,7 @@ from FallenRobot.utils.mongo import (
     karma_on,
     update_karma,
 )
+from FallenRobot.utils.admins import can_change_info
 from FallenRobot.utils.errors import capture_err
 
 
@@ -149,15 +149,8 @@ async def karma(_, message):
 
 
 @pbot.on_message(filters.command("karma") & ~filters.private)
+@can_change_info
 async def captcha_state(_, message):
-    check = await pbot.get_chat_member(message.chat.id, message.from_user.id)
-    if check.status not in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
-        return await message.reply_text("You're not an admin baby, Please stay in your limits.")
-
-    admin = (await pbot.get_chat_member(message.chat.id, message.from_user.id)).privileges
-    if not admin.can_change_info:
-        return await message.reply_text("You don't have permissions to change group info.")
-
     usage = "**Usage:**\n/karma [ON|OFF]"
     if len(message.command) != 2:
         return await message.reply_text(usage)
