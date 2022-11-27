@@ -29,7 +29,6 @@ class Config(object):
     TIGERS = 
     WOLVES = 
 
-    DONATION_LINK = ""
     CERT_PATH = None
     PORT = 5000
     DEL_CMDS = True
