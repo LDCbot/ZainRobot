@@ -34,7 +34,6 @@ psycopg2-binary
 PyDictionary
 pytz
 pymongo
-python-arq
 pyrate-limiter
 pykeyboard
 pynewtonmath
