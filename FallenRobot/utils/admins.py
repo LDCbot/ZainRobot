@@ -11,11 +11,11 @@ def can_change_info(func: Callable) -> Callable:
         if message.from_user.id in DRAGONS:
             return await func(_, message)
 
-        check = await app.get_chat_member(message.chat.id, message.from_user.id)
+        check = await pbot.get_chat_member(message.chat.id, message.from_user.id)
         if check.status not in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
             return await message.reply_text("» ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴀɴ ᴀᴅᴍɪɴ ʙᴀʙʏ, ᴘʟᴇᴀsᴇ sᴛᴀʏ ɪɴ ʏᴏᴜʀ ʟɪᴍɪᴛs.")
 
-        admin = (await app.get_chat_member(message.chat.id, message.from_user.id)).privileges
+        admin = (await pbot.get_chat_member(message.chat.id, message.from_user.id)).privileges
         if admin.can_change_info:
             return await func(_, message)
         else:
@@ -29,11 +29,11 @@ def can_restrict(func: Callable) -> Callable:
         if message.from_user.id in DEV_USERS:
             return await func(_, message)
 
-        check = await app.get_chat_member(message.chat.id, message.from_user.id)
+        check = await pbot.get_chat_member(message.chat.id, message.from_user.id)
         if check.status not in [ChatMemberStatus.OWNER, ChatMemberStatus.ADMINISTRATOR]:
             return await message.reply_text("» ʏᴏᴜ'ʀᴇ ɴᴏᴛ ᴀɴ ᴀᴅᴍɪɴ ʙᴀʙʏ, ᴘʟᴇᴀsᴇ sᴛᴀʏ ɪɴ ʏᴏᴜʀ ʟɪᴍɪᴛs.")
 
-        admin = (await app.get_chat_member(message.chat.id, message.from_user.id)).privileges
+        admin = (await pbot.get_chat_member(message.chat.id, message.from_user.id)).privileges
         if admin.can_restrict_members:
             return await func(_, message)
         else:
