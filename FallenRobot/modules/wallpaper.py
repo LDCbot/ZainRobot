@@ -18,7 +18,7 @@ async def wall(_, message: Message):
     m = await message.reply_text("`Searching for wallpapers...`")
     try:
         url = requests.get(f"https://api.safone.me/wall?query={text}").json()["results"]
-        ran = random.randint(0, 20)
+        ran = random.randint(0, 3)
         await message.reply_photo(
             photo=url[ran]["imageUrl"],
             caption=f"🥀 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {message.from_user.mention}",
