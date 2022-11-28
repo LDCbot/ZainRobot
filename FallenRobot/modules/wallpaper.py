@@ -4,7 +4,7 @@ import requests
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
-from FallenRobot import SUPPORT_CHAT, pbot
+from FallenRobot import pbot
 
 
 @pbot.on_message(filters.command(["wall", "wallpaper"]))
@@ -19,8 +19,8 @@ async def wall(_, message: Message):
     try:
         url = requests.get(f"https://api.safone.me/wall?query={text}").json()["results"]
         ran = random.randint(0, 20)
-        await message.reply_photo(
-            photo=url[ran]["imageUrl"],
+        await message.reply_document(
+            document=url[ran]["imageUrl"],
             caption=f"🥀 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {message.from_user.mention}",
             reply_markup=InlineKeyboardMarkup(
                 [
@@ -31,5 +31,5 @@ async def wall(_, message: Message):
         await m.delete()
     except Exception as e:
         await m.edit_text(
-            f"sᴏᴍᴇᴛʜɪɴɢ ᴡᴇɴᴛ ᴡʀᴏɴɢ.\nᴩʟᴇᴀsᴇ ʀᴇᴩᴏʀᴛ ᴛʜɪs ᴀᴛ @{SUPPORT_CHAT}\n\n**ᴇʀʀᴏʀ :** `{e}`",
+            f"`Wallpaper not found for : `{text}`",
         )
