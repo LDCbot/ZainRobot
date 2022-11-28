@@ -19,8 +19,8 @@ async def wall(_, message: Message):
     try:
         url = requests.get(f"https://api.safone.me/wall?query={text}").json()["results"]
         ran = random.randint(0, 20)
-        await message.reply_document(
-            document=url[ran]["imageUrl"],
+        await message.reply_photo(
+            photo=url[ran]["imageUrl"],
             caption=f"🥀 **ʀᴇǫᴜᴇsᴛᴇᴅ ʙʏ :** {message.from_user.mention}",
             reply_markup=InlineKeyboardMarkup(
                 [
