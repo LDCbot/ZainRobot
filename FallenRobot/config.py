@@ -18,24 +18,18 @@ class Config(object):
     INFOPIC = True
     URL = None
 
-    # OPTIONAL
-    ##List of id's -  (not usernames) for users which have sudo access to the bot.
-    DRAGONS = 
-    ##List of id's - (not usernames) for developers who will have the same perms as the owner
-    DEV_USERS = 
-    ##List of id's (not usernames) for users which are allowed to gban, but can also be banned.
-    DEMONS = 
-    # List of id's (not usernames) for users which WONT be banned/kicked by the bot.
-    TIGERS = 
-    WOLVES = 
+    ## Optional
+    DRAGONS = []
+    DEV_USERS = []
+    DEMONS = []
+    TIGERS = []
+    WOLVES = []
 
     CERT_PATH = None
     PORT = 5000
     DEL_CMDS = True
     STRICT_GBAN = True
-    WORKERS = (
-        8  # Number of subthreads to use. Set as number of threads your processor uses
-    )
+    WORKERS = (8)
     BAN_STICKER = (
         "CAACAgUAAxkBAAEDafNhq5Z0DegqVzauwSighMw5cPWp8QACVgQAAuUG0FRXfCEuBziNzCIE"
     )
