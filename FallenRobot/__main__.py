@@ -82,37 +82,38 @@ def get_readable_time(seconds: int) -> str:
 PM_START_TEXT = """
 *ʜᴇʏ* {}, 🥀
 
-*๏ ᴛʜɪs ɪs* {} !
-➻ ᴛʜᴇ ᴍᴏsᴛ ᴩᴏᴡᴇʀғᴜʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ sᴏᴍᴇ ᴀᴡᴇsᴏᴍᴇ ᴀɴᴅ ᴜsᴇғᴜʟ ғᴇᴀᴛᴜʀᴇs.
+*๏ 𝐓ʜɪs 𝐈s* {} !
+➻ 𝐈 𝐀ᴍ 𝐓𝐇𝐄 𝐙𝐀𝐈𝐍 𝐑𝐎𝐁𝐎𝐓🍹 !
+➻ ◕𝐓ʜᴇ 𝐌ᴏsᴛ 𝐏ᴏᴡᴇʀғᴜʟ 𝐓ᴇʟᴇɢʀᴀᴍ 𝐆ʀᴏᴜᴩ 𝐌ᴀɴᴀɢᴇᴍᴇɴᴛ 𝐁ᴏᴛ 𝐖ɪᴛʜ 𝐒ᴏᴍᴇ 𝐀ᴡᴇsᴏᴍᴇ 𝐀ɴᴅ 𝐔sᴇғᴜʟ 𝐅ᴇᴀᴛᴜʀᴇs◕.
 
 ──────────────────
-*๏ ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʜᴇʟᴩ ʙᴜᴛᴛᴏɴ ᴛᴏ ɢᴇᴛ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴍʏ ᴍᴏᴅᴜʟᴇs ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅs.*
+*๏ ▼𝐂ʟɪᴄᴋ 𝐎ɴ 𝐓ʜᴇ 𝐇ᴇʟᴩ 𝐁ᴜᴛᴛᴏɴ 𝐓ᴏ 𝐆ᴇᴛ 𝐈ɴғᴏʀᴍᴀᴛɪᴏɴ 𝐀ʙᴏᴜᴛ 𝐌ʏ 𝐌ᴏᴅᴜʟᴇs ᴀɴᴅ 𝐂ᴏᴍᴍᴀɴᴅs▼.*
 """
 
 buttons = [
     [
         InlineKeyboardButton(
-            text="ᴀᴅᴅ ᴍᴇ ᴇʟsᴇ ʏᴏᴜ ɢᴇʏ",
+            text="✰𝑨𝒅𝒅 𝑴𝒆 𝑺𝒘𝒆𝒆𝒕𝒉𝒆𝒂𝒓𝒕✰",
             url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
         ),
     ],
     [
-        InlineKeyboardButton(text="ʜᴇʟᴩ & ᴄᴏᴍᴍᴀɴᴅs", callback_data="help_back"),
+        InlineKeyboardButton(text="᯽𝑯𝒆𝒍𝒑 & 𝑪𝒐𝒎𝒎𝒂𝒏𝒅𝒔᯽", callback_data="help_back"),
     ],
     [
-        InlineKeyboardButton(text="❄ ᴀʙᴏᴜᴛ ❄", callback_data="fallen_"),
-        InlineKeyboardButton(text="✨ sᴜᴩᴩᴏʀᴛ ✨", url=f"https://t.me/{SUPPORT_CHAT}"),
+        InlineKeyboardButton(text="⁂𝑨𝒃𝒐𝒖𝒕⁂", callback_data="fallen_"),
+        InlineKeyboardButton(text="❀𝑺𝒖𝒑𝒑𝒐𝒓𝒕❀", url=f"https://t.me/+9Jfz4TpU3fkzOGFl"),
     ],
     [
-        InlineKeyboardButton(text="🥀 ᴅᴇᴠᴇʟᴏᴩᴇʀ 🥀", url=f"tg://user?id={OWNER_ID}"),
-        InlineKeyboardButton(text="☁️ sᴏᴜʀᴄᴇ ☁️", callback_data="source_"),
+        InlineKeyboardButton(text="♪𝑫𝒆𝒗𝒆𝒍𝒐𝒑𝒆𝒓♪", url=f"tg://user?id=5102663914"),
+        InlineKeyboardButton(text="𒊹︎︎︎𝑭𝒆𝒅𝒆𝒓𝒂𝒕𝒊𝒐𝒏𒊹︎︎︎", callback_data="source_"),
     ],
 ]
 
 HELP_STRINGS = f"""
-*» {BOT_NAME} ᴇxᴄʟᴜsɪᴠᴇ ꜰᴇᴀᴛᴜʀᴇs*
+*» {BOT_NAME} 𝐄xᴄʟᴜsɪᴠᴇ 𝐅ᴇᴀᴛᴜʀᴇs 𖨆*
 
-➲ /start : ꜱᴛᴀʀᴛꜱ ᴍᴇ | ᴀᴄᴄᴏʀᴅɪɴɢ ᴛᴏ ᴍᴇ ʏᴏᴜ'ᴠᴇ ᴀʟʀᴇᴀᴅʏ ᴅᴏɴᴇ ɪᴛ.
+➲ /start : 𝐒ᴛᴀʀᴛꜱ 𝐌ᴇ | 𝐀ᴄᴄᴏʀᴅɪɴɢ 𝐓ᴏ 𝐌ᴇ 𝐘ᴏᴜ'ᴠᴇ 𝐀ʟʀᴇᴀᴅʏ 𝐃ᴏɴᴇ 𝐈ᴛ.
 ➲ /help  : ᴀᴠᴀɪʟᴀʙʟᴇ ᴄᴏᴍᴍᴀɴᴅꜱ ꜱᴇᴄᴛɪᴏɴ.
   ‣ ɪɴ ᴘᴍ : ᴡɪʟʟ ꜱᴇɴᴅ ʏᴏᴜ ʜᴇʟᴘ ꜰᴏʀ ᴀʟʟ ꜱᴜᴘᴘᴏʀᴛᴇᴅ ᴍᴏᴅᴜʟᴇꜱ.
   ‣ ɪɴ ɢʀᴏᴜᴘ : ᴡɪʟʟ ʀᴇᴅɪʀᴇᴄᴛ ʏᴏᴜ ᴛᴏ ᴘᴍ, ᴡɪᴛʜ ᴀʟʟ ᴛʜᴀᴛ ʜᴇʟᴘ ᴍᴏᴅᴜʟᴇꜱ."""
@@ -222,7 +223,7 @@ def start(update: Update, context: CallbackContext):
     else:
         update.effective_message.reply_photo(
             START_IMG,
-            caption="ɪ ᴀᴍ ᴀʟɪᴠᴇ ʙᴀʙʏ !\n<b>ɪ ᴅɪᴅɴ'ᴛ sʟᴇᴘᴛ sɪɴᴄᴇ​:</b> <code>{}</code>".format(
+            caption="𝐈 𝐀ᴍ 𝐀ʟɪᴠᴇ 𝐁ᴀʙʏ !\n<b>ɪ ᴅɪᴅɴ'ᴛ sʟᴇᴘᴛ sɪɴᴄᴇ​:</b> <code>{}</code>".format(
                 uptime
             ),
             parse_mode=ParseMode.HTML,
@@ -356,8 +357,8 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
     if query.data == "fallen_":
         uptime = get_readable_time((time.time() - StartTime))
         query.message.edit_text(
-            text=f"*ʜᴇʏ,*🥀\n  *ᴛʜɪs ɪs {BOT_NAME}*"
-            "\n*ᴀ ᴘᴏᴡᴇʀꜰᴜʟ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ʙᴜɪʟᴛ ᴛᴏ ʜᴇʟᴘ ʏᴏᴜ ᴍᴀɴᴀɢᴇ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴇᴀꜱɪʟʏ ᴀɴᴅ ᴛᴏ ᴘʀᴏᴛᴇᴄᴛ ʏᴏᴜʀ ɢʀᴏᴜᴘ ꜰʀᴏᴍ ꜱᴄᴀᴍᴍᴇʀꜱ ᴀɴᴅ ꜱᴘᴀᴍᴍᴇʀꜱ.*"
+            text=f"*ʜᴇʏ,*🍹\n  *ᴛʜɪs ɪs {BOT_NAME}*"
+            "\n*𝐀 𝐏ᴏᴡᴇʀꜰᴜʟ 𝐆ʀᴏᴜᴘ 𝐌ᴀɴᴀɢᴇᴍᴇɴᴛ 𝐁ᴏᴛ 𝐁ᴜɪʟᴛ 𝐓ᴏ 𝐇ᴇʟᴘ 𝐘ᴏᴜ 𝐌ᴀɴᴀɢᴇ 𝐘ᴏᴜʀ 𝐆ʀᴏᴜᴘ 𝐄ᴀꜱɪʟʏ 𝐀ɴᴅ 𝐓ᴏ 𝐏ʀᴏᴛᴇᴄᴛ 𝐘ᴏᴜʀ 𝐆ʀᴏᴜᴘ 𝐅ʀᴏᴍ 𝐒ᴄᴀᴍᴍᴇʀꜱ 𝐀ɴᴅ 𝐒ᴘᴀᴍᴍᴇʀꜱ.*"
             "\n*ᴡʀɪᴛᴛᴇɴ ɪɴ ᴩʏᴛʜᴏɴ ᴡɪᴛʜ sǫʟᴀʟᴄʜᴇᴍʏ ᴀɴᴅ ᴍᴏɴɢᴏᴅʙ ᴀs ᴅᴀᴛᴀʙᴀsᴇ.*"
             "\n\n────────────────────"
             f"\n*➻ ᴜᴩᴛɪᴍᴇ »* {uptime}"
@@ -384,7 +385,7 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
                     ],
                     [
                         InlineKeyboardButton(
-                            text="ᴅᴇᴠᴇʟᴏᴩᴇʀ", url=f"tg://user?id={OWNER_ID}"
+                            text="ᴅᴇᴠᴇʟᴏᴩᴇʀ", url=f"tg://user?id=5102663914"
                         ),
                         InlineKeyboardButton(
                             text="sᴏᴜʀᴄᴇ",
@@ -406,10 +407,10 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
                 [
                     [
                         InlineKeyboardButton(
-                            text="sᴜᴩᴩᴏʀᴛ", url=f"https://t.me/{SUPPORT_CHAT}"
+                            text="sᴜᴩᴩᴏʀᴛ", url=f"https://t.me/+TFNht-Xwon1lM2Y1"
                         ),
                         InlineKeyboardButton(
-                            text="ᴜᴩᴅᴀᴛᴇs", url=f"https://t.me/{SUPPORT_CHAT}"
+                            text="ᴜᴩᴅᴀᴛᴇs", url=f"https://t.me/zain_THE_end"
                         ),
                     ],
                     [
@@ -417,8 +418,8 @@ def Fallen_about_callback(update: Update, context: CallbackContext):
                             text="ᴅᴇᴠᴇʟᴏᴩᴇʀ", url=f"tg://user?id={OWNER_ID}"
                         ),
                         InlineKeyboardButton(
-                            text="ɢɪᴛʜᴜʙ",
-                            url="https://github.com/TheAnonymous2005",
+                            text="ғᴇᴅᴇʀᴀᴛɪᴏɴ",
+                            url="https://t.me/Death_Soul_Federation",
                         ),
                     ],
                     [
@@ -446,19 +447,16 @@ def Source_about_callback(update: Update, context: CallbackContext):
             text=f"""
 *ʜᴇʏ,
  ᴛʜɪs ɪs {BOT_NAME},
-ᴀɴ ᴏᴩᴇɴ sᴏᴜʀᴄᴇ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ.*
+ᴀ ᴘᴏᴡᴇʀғᴜʟʟ ᴛᴇʟᴇɢʀᴀᴍ ɢʀᴏᴜᴩ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ.*
 
 ᴡʀɪᴛᴛᴇɴ ɪɴ ᴩʏᴛʜᴏɴ ᴡɪᴛʜ ᴛʜᴇ ʜᴇʟᴩ ᴏғ : [ᴛᴇʟᴇᴛʜᴏɴ](https://github.com/LonamiWebs/Telethon)
 [ᴩʏʀᴏɢʀᴀᴍ](https://github.com/pyrogram/pyrogram)
 [ᴩʏᴛʜᴏɴ-ᴛᴇʟᴇɢʀᴀᴍ-ʙᴏᴛ](https://github.com/python-telegram-bot/python-telegram-bot)
 ᴀɴᴅ ᴜsɪɴɢ [sǫʟᴀʟᴄʜᴇᴍʏ](https://www.sqlalchemy.org) ᴀɴᴅ [ᴍᴏɴɢᴏ](https://cloud.mongodb.com) ᴀs ᴅᴀᴛᴀʙᴀsᴇ.
 
-
-*ʜᴇʀᴇ ɪs ᴍʏ sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ :* [ɢɪᴛʜᴜʙ](https://github.com/TheAnonymous2005/FallenRobot)
-
-
-{BOT_NAME} ɪs ʟɪᴄᴇɴsᴇᴅ ᴜɴᴅᴇʀ ᴛʜᴇ [ᴍɪᴛ ʟɪᴄᴇɴsᴇ](https://github.com/TheAnonymous2005/FallenRobot/blob/master/LICENSE).
-© 2022 - 2023 [@ᴅᴇᴠɪʟsʜᴇᴀᴠᴇɴᴍғ](https://t.me/{SUPPORT_CHAT}), ᴀʟʟ ʀɪɢʜᴛs ʀᴇsᴇʀᴠᴇᴅ.
+*𝐇ᴇʀᴇ 𝐈s 𝐌ʏ 𝐅ᴇᴅᴇʀᴀᴛɪᴏɴ 𝐒ᴜᴘᴘᴏʀᴛ :* [𝐅𝐞𝐝𝐞𝐫𝐚𝐭𝐢𝐨𝐧](https://t.me/Death_Soul_Federation)
+{BOT_NAME} ɪs ᴅᴇᴠᴇʟᴏᴘᴇᴅ ʙʏ [𝐙𝐚𝐢𝐧](https://t.me/zain_THE_smoker).
+© 2022 - 2023 [𝐂ʜᴀᴛ 𝐇ᴇʀᴇ](https://t.me/+TFNht-Xwon1lM2Y1), ᴀʟʟ ʀɪɢʜᴛs ʀᴇsᴇʀᴠᴇᴅ.
 """,
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
@@ -729,7 +727,7 @@ def main():
                 f"@{SUPPORT_CHAT}",
                 photo=START_IMG,
                 caption=f"""
-ㅤ🥀 {BOT_NAME} ɪs ᴀʟɪᴠᴇ ʙᴀʙʏ...
+ㅤ🥂 {BOT_NAME} ɪs ᴀʟɪᴠᴇ ʙᴀʙʏ...
 
 ┏•❅────✧❅✦❅✧────❅•┓
 ㅤ★ **ᴘʏᴛʜᴏɴ :** `{y()}`
