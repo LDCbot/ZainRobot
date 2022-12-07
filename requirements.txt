@@ -37,7 +37,7 @@ pymongo
 pyrate-limiter
 pykeyboard
 pynewtonmath
-pyrogram==2.0.63
+pyrogram==2.0.69
 python-telegram-bot==12.8
 regex
 requests
